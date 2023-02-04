@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+        ],
+
+        // define your Auth here..
+
+        'your_auth_name' => [
+            'driver' => 'session',
+            'provider' => 'your table name',
+        ],
+
     ],
 
     /*
