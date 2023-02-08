@@ -23,6 +23,7 @@ use GuzzleHttp\Promise\Create;
 //public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/students', [StudentController::class, 'store']);
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/students/search/{name}', [StudentController::class, 'search']);
 Route::get('/students/showlate', [StudentController::class, 'show_late']);
@@ -31,7 +32,6 @@ Route::get('/students/islate/{name}', [StudentController::class, 'is_late']);
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/students', [StudentController::class, 'store']);
     Route::put('/students/{id}', [StudentController::class, 'update']);
     Route::delete('/students/{id}', [StudentController::class, 'destroy']);
 });
