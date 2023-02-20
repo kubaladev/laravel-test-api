@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ArrivalResource;
 use Illuminate\Http\Request;
 use App\Models\Student;
 
@@ -75,10 +76,8 @@ class StudentController extends Controller
     {
         return Student::where('name', 'like', '%' . $name . '%')->get();
     }
-    /**
-     *  Find if student is late
-     *
-     * @param  str  $name
-     * @return str student status 1 - late, 0 - not late, -1 not found
-     */
+    public function show_student_arrivals($id)
+    {
+        return new ArrivalResource(Student::findOrFail($id));
+    }
 }
